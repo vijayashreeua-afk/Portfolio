@@ -1,0 +1,153 @@
+---
+const projects = [
+  {
+    number: '01',
+    title: 'Enterprise Campaign Data Pipeline',
+    description:
+      'Engineered optimized PySpark ETL workflows in Databricks for mission-critical Comcast campaign pipelines. Improved data processing efficiency by 40% and achieved 90% data integrity through automated API validations and SQL/NoSQL reconciliation checks.',
+    impact: '40% efficiency gain · 90% data integrity',
+    skills: ['PySpark', 'Databricks', 'AWS S3', 'Python', 'Jenkins', 'SQL', 'MongoDB'],
+    highlight: true,
+  },
+  {
+    number: '02',
+    title: 'Observability Stack Migration',
+    description:
+      'Architected Elasticsearch clusters and Grafana dashboards at Comcast, leading a full migration from legacy Splunk to a scalable, modern observability stack. Enabled faster debugging and data-driven decisions for 20+ engineering teams using advanced KQL/SQL querying.',
+    impact: '20+ teams enabled · Cost-effective Splunk replacement',
+    skills: ['Elasticsearch', 'Grafana', 'Kibana', 'KQL', 'ELK Stack'],
+    highlight: false,
+  },
+  {
+    number: '03',
+    title: 'ESG / GHG Analytics Platform',
+    description:
+      'Built scalable ingestion pipelines at AIROI Inc. across Snowflake and PostgreSQL to support ESG/GHG reporting systems. Designed an optimized Snowflake warehouse model and developed Power BI dashboards for sustainability insights used by compliance leadership.',
+    impact: 'Improved cross-team analytics performance',
+    skills: ['Snowflake', 'PostgreSQL', 'Power BI', 'Python', 'ETL/ELT', 'Data Modeling'],
+    highlight: false,
+  },
+  {
+    number: '04',
+    title: 'Vector–MongoDB Log Ingestion System',
+    description:
+      'Designed scalable multi-TB log ingestion pipelines using Vector and MongoDB on Cloud Foundry at Comcast. Decreased data ingestion and storage overhead by 30% through efficient log parsing, schema handling, and high-throughput write pattern optimization.',
+    impact: '30% overhead reduction · Multi-TB scale',
+    skills: ['Vector', 'MongoDB', 'Cloud Foundry', 'Python', 'Log Parsing', 'Schema Design'],
+    highlight: false,
+  },
+  {
+    number: '05',
+    title: 'Real-Time RFID Safety Monitoring',
+    description:
+      'Led IoT and RFID data ingestion research at the University of Kansas for a real-time campus safety monitoring system. Translated raw sensor streams into analytical dashboards used for campus safety decision-making.',
+    impact: 'Real-time safety insights · Research publication',
+    skills: ['RFID', 'IoT', 'Data Ingestion', 'Python', 'Real-time Analytics'],
+    highlight: false,
+  },
+];
+---
+
+<section id="projects" aria-labelledby="projects-title">
+  <div class="container">
+
+    <div class="section-header fade-up">
+      <span class="section-label">03 / Projects</span>
+      <h2 class="section-title" id="projects-title">
+        What I've <span>Built</span>
+      </h2>
+      <div class="divider"></div>
+    </div>
+
+    <div class="projects-grid">
+      {projects.map((p, i) => (
+        <article class={`project-card card fade-up d${(i % 3) + 1} ${p.highlight ? 'featured' : ''}`}>
+          <div class="project-number">{p.number}</div>
+          <h3 class="project-title">{p.title}</h3>
+          <p class="project-desc">{p.description}</p>
+          <p class="project-impact">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
+                 fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                 stroke-linejoin="round" aria-hidden="true">
+              <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/>
+            </svg>
+            {p.impact}
+          </p>
+          <div class="tags">
+            {p.skills.map((s) => <span class="tag">{s}</span>)}
+          </div>
+        </article>
+      ))}
+    </div>
+
+  </div>
+</section>
+
+<style>
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.project-card.featured {
+  border-color: var(--border-hover);
+  background: linear-gradient(135deg, var(--bg-card), rgba(0,200,255,0.04));
+}
+.project-card.featured::before {
+  content: '★ Featured';
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--accent);
+  font-family: var(--font-mono);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.project-number {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--accent);
+  letter-spacing: 0.1em;
+  font-weight: 600;
+}
+
+.project-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.3;
+}
+
+.project-desc {
+  color: var(--text-secondary);
+  font-size: 0.93rem;
+  line-height: 1.75;
+  flex: 1;
+}
+
+.project-impact {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--accent-warm);
+  font-family: var(--font-mono);
+}
+
+@media (max-width: 680px) {
+  .projects-grid { grid-template-columns: 1fr; }
+}
+</style>

@@ -1,0 +1,129 @@
+---
+---
+
+<section id="education" aria-labelledby="education-title">
+  <div class="container">
+
+    <div class="section-header fade-up">
+      <span class="section-label">05 / Education</span>
+      <h2 class="section-title" id="education-title">
+        Academic <span>Background</span>
+      </h2>
+      <div class="divider"></div>
+    </div>
+
+    <div class="edu-wrap fade-up d1">
+      <div class="edu-card card">
+        <div class="edu-icon" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"
+               fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+               stroke-linejoin="round">
+            <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+            <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+          </svg>
+        </div>
+        <div class="edu-body">
+          <div class="edu-header">
+            <div>
+              <h3 class="edu-degree">Master of Science — Computer Science</h3>
+              <p class="edu-school">University of Kansas</p>
+              <p class="edu-location">Lawrence, Kansas, USA</p>
+            </div>
+            <div class="edu-meta">
+              <span class="edu-period">Dec 2024</span>
+              <span class="edu-gpa">GPA: 3.45 / 4.0</span>
+            </div>
+          </div>
+          <div class="edu-highlights">
+            <span class="tag">Graduate Research Fellowship</span>
+            <span class="tag">Teaching Assistant</span>
+            <span class="tag">Conference Secretary — CSC 2023</span>
+            <span class="tag">IoT & RFID Research</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+.edu-wrap { max-width: 780px; margin: 0 auto; }
+
+.edu-card {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+  padding: 2.25rem;
+}
+
+.edu-icon {
+  flex-shrink: 0;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--accent-glow);
+  border: 1px solid var(--border-hover);
+  border-radius: var(--radius);
+  color: var(--accent);
+}
+
+.edu-body { flex: 1; }
+
+.edu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.25rem;
+}
+
+.edu-degree {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+}
+.edu-school {
+  font-size: 1rem;
+  color: var(--accent);
+  font-weight: 600;
+}
+.edu-location {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-top: 0.15rem;
+}
+
+.edu-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.4rem;
+  flex-shrink: 0;
+}
+.edu-period {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+.edu-gpa {
+  font-weight: 700;
+  font-size: 0.9rem;
+  background: linear-gradient(90deg, var(--accent), var(--accent-warm));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.edu-highlights { margin-top: 0.25rem; }
+
+@media (max-width: 600px) {
+  .edu-card { flex-direction: column; gap: 1.25rem; }
+  .edu-header { flex-direction: column; }
+  .edu-meta { align-items: flex-start; }
+}
+</style>

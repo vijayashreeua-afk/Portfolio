@@ -1,0 +1,256 @@
+/* ============================================================
+   DESIGN TOKENS
+   ============================================================ */
+:root {
+  /* Dark mode palette (default) */
+  --bg-primary:   #050b18;
+  --bg-secondary: #0d1526;
+  --bg-card:      #12203a;
+  --bg-nav:       rgba(5, 11, 24, 0.88);
+
+  --accent:       #00c8ff;
+  --accent-glow:  rgba(0, 200, 255, 0.12);
+  --accent-warm:  #ff6b35;
+
+  --text-primary: #e8f4fd;
+  --text-secondary: #7891a8;
+  --text-muted:   #4a6480;
+
+  --border:       rgba(255, 255, 255, 0.07);
+  --border-hover: rgba(0, 200, 255, 0.35);
+  --shadow:       0 4px 24px rgba(0, 0, 0, 0.5);
+
+  --font-sans:  'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono:  'Fira Code', 'Cascadia Code', 'Courier New', monospace;
+
+  --radius:     12px;
+  --radius-sm:  8px;
+  --transition: 0.25s ease;
+}
+
+[data-theme="light"] {
+  --bg-primary:   #f4f8ff;
+  --bg-secondary: #e8f0fe;
+  --bg-card:      #ffffff;
+  --bg-nav:       rgba(244, 248, 255, 0.88);
+
+  --accent:       #0059c1;
+  --accent-glow:  rgba(0, 89, 193, 0.10);
+  --accent-warm:  #c44200;
+
+  --text-primary: #0d1526;
+  --text-secondary: #405070;
+  --text-muted:   #8090a8;
+
+  --border:       rgba(0, 0, 0, 0.08);
+  --border-hover: rgba(0, 89, 193, 0.35);
+  --shadow:       0 4px 24px rgba(0, 0, 0, 0.10);
+}
+
+/* ============================================================
+   RESET & BASE
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 70px;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  line-height: 1.75;
+  transition: background-color 0.3s, color 0.3s;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--accent); text-decoration: none; transition: color var(--transition); }
+a:hover { color: var(--accent-warm); }
+
+strong { color: var(--text-primary); }
+
+img { max-width: 100%; display: block; }
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Skip link */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  padding: 0.5rem 1rem;
+  background: var(--accent);
+  color: #000;
+  font-weight: 600;
+  border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+  z-index: 9999;
+}
+.skip-link:focus { top: 0; }
+
+/* ============================================================
+   CONTAINER
+   ============================================================ */
+.container {
+  width: min(1080px, 90vw);
+  margin: 0 auto;
+}
+
+/* ============================================================
+   SECTIONS
+   ============================================================ */
+section {
+  padding: 7rem 0;
+}
+
+.section-header {
+  margin-bottom: 4rem;
+  text-align: center;
+}
+
+.section-label {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--accent);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+
+.section-title {
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--text-primary);
+}
+
+.section-title span {
+  color: var(--accent);
+}
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.7rem 1.6rem;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: background var(--transition), color var(--transition),
+              border-color var(--transition), transform var(--transition),
+              box-shadow var(--transition);
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: #000;
+}
+.btn-primary:hover {
+  background: transparent;
+  color: var(--accent);
+  border-color: var(--accent);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px var(--accent-glow);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--accent);
+  border-color: var(--accent);
+}
+.btn-outline:hover {
+  background: var(--accent-glow);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px var(--accent-glow);
+}
+
+/* ============================================================
+   CARDS
+   ============================================================ */
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.75rem;
+  transition: border-color var(--transition), box-shadow var(--transition),
+              transform var(--transition);
+}
+.card:hover {
+  border-color: var(--border-hover);
+  box-shadow: var(--shadow);
+  transform: translateY(-3px);
+}
+
+/* ============================================================
+   TAGS
+   ============================================================ */
+.tag {
+  display: inline-block;
+  padding: 0.2rem 0.7rem;
+  background: var(--accent-glow);
+  color: var(--accent);
+  border: 1px solid var(--border-hover);
+  border-radius: 100px;
+  font-size: 0.78rem;
+  font-family: var(--font-mono);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.75rem;
+}
+
+/* ============================================================
+   SCROLL ANIMATIONS
+   ============================================================ */
+.fade-up {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.fade-up.visible { opacity: 1; transform: translateY(0); }
+
+.fade-up.d1 { transition-delay: 0.10s; }
+.fade-up.d2 { transition-delay: 0.20s; }
+.fade-up.d3 { transition-delay: 0.30s; }
+.fade-up.d4 { transition-delay: 0.40s; }
+.fade-up.d5 { transition-delay: 0.50s; }
+
+/* ============================================================
+   DIVIDER
+   ============================================================ */
+.divider {
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-warm));
+  border-radius: 99px;
+  margin: 1rem auto 0;
+}
+
+/* ============================================================
+   SCROLLBAR
+   ============================================================ */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-primary); }
+::-webkit-scrollbar-thumb { background: var(--text-muted); border-radius: 99px; }
+::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+
+/* ============================================================
+   SELECTION
+   ============================================================ */
+::selection { background: var(--accent-glow); color: var(--accent); }

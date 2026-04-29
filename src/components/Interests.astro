@@ -1,0 +1,96 @@
+---
+const interests = [
+  {
+    icon: '🔀',
+    title: 'Large-Scale Data Engineering',
+    desc: 'Designing fault-tolerant, high-throughput pipelines that reliably process petabyte-scale datasets with minimal latency.',
+  },
+  {
+    icon: '☁️',
+    title: 'Cloud-Native Architectures',
+    desc: 'Building portable, cost-efficient data systems on cloud platforms using managed services, containers, and IaC.',
+  },
+  {
+    icon: '⚡',
+    title: 'Real-Time Analytics & Streaming',
+    desc: 'Exploring stream processing, event-driven architectures, and low-latency analytics for operational intelligence.',
+  },
+  {
+    icon: '🤖',
+    title: 'ML & AI Infrastructure',
+    desc: 'Interested in feature stores, ML pipelines, and data platforms that enable reliable machine learning at scale.',
+  },
+  {
+    icon: '🌱',
+    title: 'ESG & Sustainability Analytics',
+    desc: 'Passionate about using data engineering to power ESG reporting, emissions tracking, and sustainability decisions.',
+  },
+  {
+    icon: '📡',
+    title: 'Observability & Reliability',
+    desc: 'Advocating for comprehensive data observability — from lineage tracking to anomaly detection and SLA monitoring.',
+  },
+];
+---
+
+<section id="interests" aria-labelledby="interests-title">
+  <div class="container">
+
+    <div class="section-header fade-up">
+      <span class="section-label">06 / Interests</span>
+      <h2 class="section-title" id="interests-title">
+        Areas of <span>Interest</span>
+      </h2>
+      <div class="divider"></div>
+    </div>
+
+    <div class="interests-grid">
+      {interests.map((item, i) => (
+        <div class={`interest-card card fade-up d${(i % 3) + 1}`}>
+          <span class="interest-icon" aria-hidden="true">{item.icon}</span>
+          <h3 class="interest-title">{item.title}</h3>
+          <p class="interest-desc">{item.desc}</p>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>
+
+<style>
+.interests-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.25rem;
+}
+
+.interest-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  padding: 1.75rem;
+  transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition);
+}
+.interest-card:hover { transform: translateY(-4px); }
+
+.interest-icon {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.interest-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.interest-desc {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+@media (max-width: 640px) {
+  .interests-grid { grid-template-columns: 1fr; }
+}
+</style>

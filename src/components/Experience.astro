@@ -1,0 +1,220 @@
+---
+const jobs = [
+  {
+    company: 'Comcast',
+    role: 'Data Engineer',
+    period: 'Feb 2025 – Present',
+    location: 'Philadelphia, PA',
+    type: 'Full-time',
+    bullets: [
+      'Increased data processing efficiency by 40% for mission-critical campaign pipelines by engineering optimized PySpark ETL workflows in Databricks, leveraging AWS S3 as a scalable data lake.',
+      'Achieved 90% data integrity across distributed systems by implementing automated API validations and SQL/NoSQL reconciliation checks via Jenkins and Rundeck.',
+      'Reduced MongoDB CPU utilization by ~45% and improved write throughput stability by redesigning ETL write patterns using batched updates and tuning Spark parallelism (350 → 16 partitions).',
+      'Decreased data ingestion & storage overhead by 30% for multi-TB datasets by designing scalable pipelines using Vector and MongoDB across Cloud Foundry environments.',
+      'Enabled faster debugging for 20+ engineering teams by architecting Elasticsearch clusters and Grafana dashboards, leading migration from legacy Splunk to a scalable observability stack.',
+    ],
+    skills: ['PySpark', 'Databricks', 'AWS S3', 'Python', 'MongoDB', 'Kubernetes', 'Jenkins', 'Concourse', 'ELK Stack', 'Grafana'],
+  },
+  {
+    company: 'AIROI Inc.',
+    role: 'Data Engineer Intern',
+    period: 'Jun 2024 – Nov 2024',
+    location: 'Palo Alto, CA',
+    type: 'Internship',
+    bullets: [
+      'Built scalable ingestion pipelines across Snowflake and PostgreSQL to support ESG/GHG reporting systems, improving data availability and consistency.',
+      'Designed an optimized Snowflake warehouse model that enhanced cross-team analytics performance and supported faster query execution.',
+      'Developed Power BI dashboards for GHG emissions, enabling clearer sustainability insights for leadership and compliance teams.',
+      'Automated recurring ETL workflows using Python, reducing manual intervention and improving overall pipeline reliability.',
+    ],
+    skills: ['Snowflake', 'PostgreSQL', 'Power BI', 'Python', 'ETL/ELT', 'Data Modeling', 'ESG Analytics'],
+  },
+  {
+    company: 'University of Kansas',
+    role: 'Graduate Research Fellow & Teaching Assistant',
+    period: 'Apr 2023 – May 2024',
+    location: 'Lawrence, KS',
+    type: 'Academic',
+    bullets: [
+      'Led data-driven academic support for 150+ students — mentoring on ML concepts and structuring scalable grading workflows.',
+      'Directed applied research on RFID and IoT data ingestion for real-time campus safety monitoring, delivering analytical dashboards to support decision-making.',
+      'Owned end-to-end coordination as Conference Secretary for CSC 2023 (international conference), managing data-driven session planning for global participants.',
+    ],
+    skills: ['IoT / RFID', 'Data Ingestion', 'Machine Learning', 'Python', 'Research'],
+  },
+  {
+    company: 'Credit Suisse',
+    role: 'Data Engineer',
+    period: 'Jun 2021 – Jan 2023',
+    location: 'Bangalore, India',
+    type: 'Full-time',
+    bullets: [
+      'Improved downstream reporting accuracy by ~20% by supporting SQL-based data ingestion and preprocessing workflows from relational databases.',
+      'Increased data quality and reliability by ~25% by identifying and resolving null values, schema mismatches, and inconsistencies.',
+      'Reduced recurring ETL job failures by ~15% through systematic job monitoring and production issue resolution.',
+      'Improved team efficiency and reduced onboarding time by ~30% by documenting pipelines, schemas, and operational procedures.',
+    ],
+    skills: ['SQL', 'Python', 'ETL', 'Data Validation', 'Linux', 'Data Quality'],
+  },
+];
+---
+
+<section id="experience" aria-labelledby="experience-title">
+  <div class="container">
+
+    <div class="section-header fade-up">
+      <span class="section-label">02 / Experience</span>
+      <h2 class="section-title" id="experience-title">
+        Where I've <span>Worked</span>
+      </h2>
+      <div class="divider"></div>
+    </div>
+
+    <div class="timeline">
+      {jobs.map((job, i) => (
+        <article class={`job fade-up d${(i % 4) + 1}`}>
+          <div class="job-dot" aria-hidden="true"></div>
+          <div class="job-card card">
+            <header class="job-header">
+              <div class="job-meta">
+                <h3 class="job-role">{job.role}</h3>
+                <span class="job-company">{job.company}</span>
+              </div>
+              <div class="job-info">
+                <span class="job-period">{job.period}</span>
+                <span class="job-location">{job.location}</span>
+                <span class={`job-type type-${job.type.toLowerCase()}`}>{job.type}</span>
+              </div>
+            </header>
+            <ul class="job-bullets">
+              {job.bullets.map((b) => (
+                <li>{b}</li>
+              ))}
+            </ul>
+            <div class="tags">
+              {job.skills.map((s) => (
+                <span class="tag">{s}</span>
+              ))}
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+
+  </div>
+</section>
+
+<style>
+.timeline {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+  padding-left: 2.5rem;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 8px;
+  top: 12px;
+  bottom: 12px;
+  width: 2px;
+  background: linear-gradient(180deg, var(--accent), transparent);
+  border-radius: 2px;
+}
+
+.job { position: relative; }
+
+.job-dot {
+  position: absolute;
+  left: -2.05rem;
+  top: 1.5rem;
+  width: 14px;
+  height: 14px;
+  background: var(--bg-primary);
+  border: 2px solid var(--accent);
+  border-radius: 50%;
+  box-shadow: 0 0 8px var(--accent);
+}
+
+.job-card { padding: 1.75rem 2rem; }
+
+.job-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.25rem;
+}
+
+.job-role {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+.job-company {
+  font-size: 1rem;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.job-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.25rem;
+  text-align: right;
+  flex-shrink: 0;
+}
+.job-period {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+.job-location {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.job-type {
+  display: inline-block;
+  padding: 0.15rem 0.6rem;
+  border-radius: 100px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.type-full-time { background: rgba(0,200,255,0.15); color: var(--accent); }
+.type-internship { background: rgba(255,107,53,0.15); color: var(--accent-warm); }
+.type-academic   { background: rgba(100,200,100,0.15); color: #6dc96d; }
+
+.job-bullets {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-bottom: 1rem;
+}
+.job-bullets li {
+  position: relative;
+  padding-left: 1.4rem;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+.job-bullets li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+}
+
+@media (max-width: 640px) {
+  .job-header { flex-direction: column; }
+  .job-info { align-items: flex-start; text-align: left; }
+  .timeline { padding-left: 1.75rem; }
+}
+</style>

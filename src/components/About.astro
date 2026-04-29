@@ -1,0 +1,103 @@
+---
+const stats = [
+  { value: '4+',   label: 'Years Experience'   },
+  { value: '40%',  label: 'Pipeline Efficiency Gain' },
+  { value: '20+',  label: 'Teams Empowered'    },
+  { value: '3',    label: 'Companies'           },
+];
+---
+
+<section id="about" aria-labelledby="about-title">
+  <div class="container">
+
+    <div class="section-header fade-up">
+      <span class="section-label">01 / About</span>
+      <h2 class="section-title" id="about-title">
+        Who I <span>Am</span>
+      </h2>
+      <div class="divider"></div>
+    </div>
+
+    <div class="about-grid">
+      <div class="about-copy fade-up d1">
+        <p>
+          I'm a <strong>Data Engineer</strong> with a Master's in Computer Science from the
+          <strong>University of Kansas</strong> and 4+ years of hands-on experience building
+          production-grade data systems.
+        </p>
+        <p>
+          At <strong>Comcast</strong>, I engineer high-throughput ETL pipelines on
+          <strong>PySpark</strong> and <strong>Databricks</strong>, automate data validation
+          across distributed SQL/NoSQL stores, and lead observability migrations from legacy
+          Splunk to scalable <strong>ELK Stack + Grafana</strong> architectures.
+        </p>
+        <p>
+          Before Comcast, I built ESG/GHG analytics platforms at <strong>AIROI</strong> and
+          contributed to enterprise data workflows at <strong>Credit Suisse</strong>. I'm
+          passionate about reliability, performance, and making data trustworthy at scale.
+        </p>
+        <a href="#contact" class="btn btn-outline" style="margin-top:1.5rem;">
+          Let's Connect
+        </a>
+      </div>
+
+      <div class="stats-grid fade-up d2">
+        {stats.map((s) => (
+          <div class="stat-card card">
+            <span class="stat-value">{s.value}</span>
+            <span class="stat-label">{s.label}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 4rem;
+  align-items: start;
+}
+.about-copy p {
+  color: var(--text-secondary);
+  margin-bottom: 1.25rem;
+  font-size: 1.05rem;
+  line-height: 1.85;
+}
+.about-copy strong { color: var(--text-primary); }
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+.stat-card {
+  text-align: center;
+  padding: 1.75rem 1rem;
+}
+.stat-value {
+  display: block;
+  font-size: 2.4rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--accent), var(--accent-warm));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.1;
+  margin-bottom: 0.4rem;
+}
+.stat-label {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+@media (max-width: 860px) {
+  .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+}
+</style>

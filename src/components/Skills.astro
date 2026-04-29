@@ -1,0 +1,95 @@
+---
+const skillGroups = [
+  {
+    category: 'Languages & Scripting',
+    icon: '⌨️',
+    skills: ['Python', 'SQL', 'PySpark', 'Bash / Linux', 'KQL'],
+  },
+  {
+    category: 'Data Engineering & ETL',
+    icon: '⚙️',
+    skills: ['Databricks', 'ETL / ELT Pipelines', 'Data Modeling', 'Data Integration', 'Vector', 'Log Parsing'],
+  },
+  {
+    category: 'Databases & Storage',
+    icon: '🗄️',
+    skills: ['MongoDB', 'PostgreSQL', 'Snowflake', 'Elasticsearch', 'AWS S3'],
+  },
+  {
+    category: 'Cloud & Infrastructure',
+    icon: '☁️',
+    skills: ['AWS S3', 'Cloud Foundry', 'Kubernetes', 'Microservices', 'Distributed Systems'],
+  },
+  {
+    category: 'CI/CD & Orchestration',
+    icon: '🔄',
+    skills: ['Jenkins', 'Concourse CI/CD', 'Rundeck', 'Git', 'Automated Workflows'],
+  },
+  {
+    category: 'Monitoring & Observability',
+    icon: '📊',
+    skills: ['ELK Stack', 'Grafana', 'Splunk', 'Kibana', 'Elasticsearch', 'Power BI'],
+  },
+  {
+    category: 'Testing & Data Quality',
+    icon: '✅',
+    skills: ['Postman', 'API Testing', 'E2E Data Validation', 'Data Integrity Testing', 'Schema Validation'],
+  },
+];
+---
+
+<section id="skills" aria-labelledby="skills-title">
+  <div class="container">
+
+    <div class="section-header fade-up">
+      <span class="section-label">04 / Skills</span>
+      <h2 class="section-title" id="skills-title">
+        My <span>Tech Stack</span>
+      </h2>
+      <div class="divider"></div>
+    </div>
+
+    <div class="skills-grid">
+      {skillGroups.map((group, i) => (
+        <div class={`skill-group card fade-up d${(i % 4) + 1}`}>
+          <h3 class="group-title">
+            <span class="group-icon" aria-hidden="true">{group.icon}</span>
+            {group.category}
+          </h3>
+          <div class="tags">
+            {group.skills.map((s) => (
+              <span class="tag">{s}</span>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>
+
+<style>
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.25rem;
+}
+
+.skill-group { padding: 1.5rem; }
+
+.group-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.group-icon { font-size: 1.1rem; }
+
+@media (max-width: 640px) {
+  .skills-grid { grid-template-columns: 1fr; }
+}
+</style>
